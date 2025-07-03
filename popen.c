@@ -44,7 +44,11 @@ int	ft_popen(const char *file, char *const argv[], char type)
 		else if (pid == 0)
 		{
 			if (dup2(fd[1], 1) < 0)
+			{
+				close(fd[0]);
+				close(fd[1]);
 				exit(-1);
+			}
 			close(fd[0]);
 			close(fd[1]);
 			execvp(file, argv);
@@ -61,7 +65,11 @@ int	ft_popen(const char *file, char *const argv[], char type)
 		else if (pid == 0)
 		{
 			if (dup2(fd[0], 0) < 0)
+			{
+				close(fd[0]);
+				close(fd[1]);
 				exit(-1);
+			}
 			close(fd[0]);
 			close(fd[1]);
 			execvp(file, argv);

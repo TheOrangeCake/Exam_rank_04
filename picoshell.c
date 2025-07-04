@@ -81,6 +81,11 @@ int	picoshell(char ***cmds)
 			execvp(cmds[i][0], cmds[i]);
 			exit(1);
 		}
+		if (prev != -1)
+		{
+			close(prev);
+			prev = -1;
+		}
 		if (cmds[i + 1] != NULL) // if NOT last command
 		{
 			prev = fd[0];

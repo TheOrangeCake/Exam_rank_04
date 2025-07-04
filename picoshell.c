@@ -5,7 +5,7 @@ ___
 
 Write the following function:
 
-int    picoshell(char *cmds[]);
+int    picoshell(char **cmds[]);
 
 The goal of this function is to execute a pipeline. It must execute each
 commands [sic] of cmds and connect the output of one to the input of the

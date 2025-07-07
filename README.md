@@ -1,0 +1,2 @@
+- picoshell and vbc passed.
+- argo subject lacks given codes.
